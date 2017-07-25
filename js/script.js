@@ -35,6 +35,7 @@ function signOut() {
 /*******************************facebook API login ********************************/
 
 // initialize and setup facebook js sdk
+/*
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '1498930736807544',
@@ -97,6 +98,7 @@ FB.logout(function(response) {
  document.location.reload();
  });
 }
+*/
 /*******************************LEANMODAL login ********************************/
 
 $("#modal_trigger").leanModal({
