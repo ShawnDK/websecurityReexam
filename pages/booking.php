@@ -99,7 +99,7 @@
                     <h2 class="fl-r fs-24px fw-normal"><span class=""><?php echo $item[0]['price']; ?>$</span>/day</h2>
                 </div>
                 <h3 class="fs-16px fw-bold"><?php echo $rentier[0]['adress']; ?> <i class='fa fa-map-marker' aria-hidden='true'></i></h3>
-                <div><?php echo $item[0]['des']; ?></div>
+                <div><?php echo htmlentities($item[0]['des']); ?></div>
             </div>
             <div class="personSpec fl-l f-cl-c">
                 <img class="img-s-75" src="https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png">

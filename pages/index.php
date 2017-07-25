@@ -71,7 +71,7 @@
 									<h2 class='fl-r fs-24px fw-normal'><span class=''>".$item['price']."$</span>/day</h2>
 								</div>
 								<h3 class='fs-16px fw-bold'>".$item['adress']."<i class='fa fa-map-marker' aria-hidden='true'></i></h3>
-								<div>".$item['des']."</div>
+								<div>".htmlentities($item['des'])."</div>
 							</div>
 							<div class='personSpec fl-l f-cl-c'>
 								<img class='img-s-75' src='";

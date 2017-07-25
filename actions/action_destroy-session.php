@@ -13,4 +13,5 @@
     session_unset();
     session_destroy();
     echo "destroy";
+    //header("Location: /websecurity/");
 ?>

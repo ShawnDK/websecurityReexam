@@ -16,7 +16,7 @@
     $addprod->bindParam(':price', $sPrice);
     $addprod->bindParam(':period', $sPeriod);
     
-    $referenceVariable = '';
+    $referenceVariable = 'genericItem.png';
 
     $uploaddir = '../uploads/';
     $uploadfile = $uploaddir . basename($_FILES['file_img']['name']);

@@ -61,7 +61,7 @@ if (isset($aUrl()[1])){
                         $INCLUDE('page','addproduct');
                     break;
                     default:
-                        if(isset($aUrl()[3])){
+                        if(isset($aUrl()[3]) && isset($_SESSION["userIdSession"])){
                             switch ($aUrl()[3]) {
                                 case 'REVIEW':
                                     include('pages/makeReview.php');

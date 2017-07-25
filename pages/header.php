@@ -43,7 +43,7 @@
     <section class="p-20">
       <!-- Social Login -->
       <div class="social_login">
-        <div class="">
+       <!-- <div class="">
           <a onclick="login();" class="social-box fb">
             <span class="icon"><i class="fa fa-facebook"></i></span>
             <span class="icon_title">Connect with Facebook</span>
@@ -52,10 +52,10 @@
             <span><i class="fa fa-google-plus"></i></span>
             <span class="icon_title">Connect with Google</span>
           </a>
-        </div>
+        </div> 
         <div class="text-center p-20 ">
           <span>OR USE YOUR EMAIL ADDRESS</span>
-        </div>
+        </div> -->
         <div class="action_btns">
           <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
           <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
@@ -124,7 +124,7 @@
 $("#btn-admin-login").click(function(){
      var sLoginUser = $("#txt-email").val();
      var sLoginPass = $("#txt-password").val();
-     var sLink = "actions/action_validate-login.php?email=" + sLoginUser + "&pass=" + sLoginPass;
+     var sLink = "/websecurity/actions/action_validate-login.php?email=" + sLoginUser + "&pass=" + sLoginPass;
 
      if ( sLoginUser == "") {
       $("#errorLabelUser").html("");
@@ -174,7 +174,7 @@ $("#btn-admin-login").click(function(){
    var sCreateEmail = $("#emailCreateInput").val();
    var sCreatePass = $("#passCreateInput").val();
    var sCreatePassRepeat = $("#passRepeatCreateInput").val();
-   var sLink = "actions/action_create-login.php?user=" + sCreateUser + "&email=" + sCreateEmail + "&pass=" + sCreatePass + "&passRepeat=" + sCreatePassRepeat;
+   var sLink = "/websecurity/actions/action_create-login.php?user=" + sCreateUser + "&email=" + sCreateEmail + "&pass=" + sCreatePass + "&passRepeat=" + sCreatePassRepeat;
 
  //RESET ALL LABEL FIELDS
  $("#CreateLabelUser").html("");
@@ -248,13 +248,15 @@ if ( sCreateUser !== "" && sCreateEmail !== "" && sCreatePass !== "" && sCreateP
     
     $("#logoutBtn").click(function(){
       $.ajax({
-        "url":"actions/action_destroy-session.php",
+        "url":"/websecurity/actions/action_destroy-session.php",
         "method":"post",
         "dataType":"text",
         "cache":false
       }).done(function(Data){
         //window.location.assign(location.href);
-        location.reload(true);
+        //location.reload(true);
+        //header("Location: /websecurity/index.php");
+        window.location = "/websecurity";
         console.log("DATA LOG"+Data);
       })
 });

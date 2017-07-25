@@ -103,7 +103,7 @@ if($resultCheckCount>0){
                 
                 if($rentalsCheckCount>0){
                     foreach($rentals as $each){
-                        echo "<a href='products/".$each['id']."'><div class='b-2 m-20 p-20'><div class='img-s-150 m-auto'>
+                        echo "<a href='../products/".$each['id']."'><div class='b-2 m-20 p-20'><div class='img-s-150 m-auto'>
                         <img src='";
 
                         if($each['image']){
@@ -115,7 +115,7 @@ if($resultCheckCount>0){
                         echo "' class='img-100' alt='Profile'>
                     </div>
                     <p class='w-300 f-w-600 txt-align-center'>".$each['title']."</p></br>
-                    <p class='w-300'>".$each['des'].
+                    <p class='w-300'>".htmlentities($each['des']).
                         "</p><br><p class='w-300 txt-align-center'>Price: ".$each['price'].
                         "</p></div></a>";
                     }

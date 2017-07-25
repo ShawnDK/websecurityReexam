@@ -1,5 +1,5 @@
+
 <div class="f-cl-c m-20">
-    <?php print_r($aUrl()[2]) ?>
     <h1 class="h1-c">NEW REVIEW</h1>
     <div class="f-c m-20">
         <i class="p-4 fa fa-star-o fa-3x ratings_stars" aria-hidden="true"></i>
