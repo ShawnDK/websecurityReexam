@@ -4,7 +4,8 @@
 		<title>Page Titles</title>
 		<meta charset="UTF-8">
 		<meta name="viewport"  content="width=device-width, initial-scale=1.0">
-		<meta name="google-signin-client_id" content="887416469017-5bhes9v5h5isjimm79gdjck7dsnnc53s.apps.googleusercontent.com">
+		<!--
+		<meta name="google-signin-client_id" content="887416469017-5bhes9v5h5isjimm79gdjck7dsnnc53s.apps.googleusercontent.com"> -->
 		
 		<!-- <link href="http://188.226.140.143/css/style.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="http://188.226.140.143/bootstrap/css/bootstrap.min.css" />

@@ -25,16 +25,12 @@
     /*HEADER*/
     include 'pages/header.php';
 
-	/*CONTENT*/       
-	
-	
+	/*CONTENT*/
+
+if (isset($aUrl()[1])){
 	switch ($aUrl()[1]) {
 	    
-	case 'FAQ':
-            $INCLUDE('page','faq');
-	    //include('pages/faq.php');
-        break;
-            
+
 	    case 'PROFILE':
             if(isset($aUrl()[2])){
                 switch ($aUrl()[2]) {
@@ -85,6 +81,11 @@
                 $INCLUDE('page','index');
             }
         break;
+       
+       	case 'FAQ':
+            $INCLUDE('page','faq');
+	    //include('pages/faq.php');
+        break;
             
         case 'MESSAGES':
             include('pages/messenger.php');
@@ -92,9 +93,11 @@
 
 	    default:
             $INCLUDE('page','index');
-        break;
+	    break;
 	}
-
+}else{
+ $INCLUDE('page','index');
+}
 	/*FOOTER*/
     $INCLUDE('page','footer');
 

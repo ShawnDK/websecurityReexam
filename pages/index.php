@@ -50,7 +50,7 @@
 				$rentalsCount = $rentals->rowCount();
 				$rentals = $rentals->fetchAll();
 
-				print_r($rentalsCount);
+				//print_r($rentalsCount);
 				
 				if($rentalsCount>0){
 					foreach($rentals as $item){
