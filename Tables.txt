@@ -1,0 +1,127 @@
+USE sys;
+CREATE TABLE IF NOT EXISTS websecusers
+(
+id INT NOT NULL AUTO_INCREMENT, 
+user VARCHAR(20) NOT NULL,
+email VARCHAR(60) NOT NULL,
+pass VARCHAR(255) NOT NULL,
+loggedTime timestamp default now() on update now(),
+PRIMARY KEY (id)
+) ENGINE=innoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO websecusers(user,email,pass) VALUES ('superadmin','superadmin', 'superadmin');
+
+
+
+INSERT INTO websecusers(user,email,pass) VALUES ('test','test', 'admin');
+
+
+----------------------------------------------------------------------------
+
+USE sys;
+CREATE TABLE IF NOT EXISTS websecip (
+id INT NOT NULL AUTO_INCREMENT,
+address varchar(16) NOT NULL,
+lockout varchar(16),
+sitelock varchar(16),
+username varchar(30) NOT NULL,
+timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (id)
+) ENGINE=innoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+----------------------------------------------------------------------------
+
+USE sys;
+CREATE TABLE IF NOT EXISTS websecrentals (
+id INT NOT NULL AUTO_INCREMENT,
+userId INT NOT NULL,
+image VARCHAR (150),
+title VARCHAR(50),
+des VARCHAR (255),
+price INT NOT NULL,
+rentPeriod INT NOT NULL,
+timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (userId) REFERENCES websecusers (id),
+PRIMARY KEY (id)
+) ENGINE=innoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO websecrentals (userId,image,title,des,price,rentPeriod ) VALUES 
+
+(1,'genericItem.png', 'Drill','Awesome drill, used but works','50','2');
+
+----------------------------------------------------------------------------
+
+USE sys;
+CREATE TABLE IF NOT EXISTS websecreviews (
+id INT NOT NULL AUTO_INCREMENT,
+itemId INT NOT NULL,
+user INT NOT NULL,
+reviewer INT NOT NULL,
+comment VARCHAR(255) NOT NULL,
+rating INT,
+reviewTime timestamp DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (user) REFERENCES websecusers (id),
+FOREIGN KEY (reviewer) REFERENCES websecusers (id),
+FOREIGN KEY (itemId) REFERENCES websecrentals(id),
+PRIMARY KEY (id)
+) ENGINE=innoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO websecreviews(itemId,user,reviewer,comment,rating)
+VALUES('1','1','0002','I rented the phone from Thao, it was awesome!','4');
+
+----------------------------------------------------------------------------
+
+USE sys;
+CREATE TABLE IF NOT EXISTS websecuserinfo (
+id INT NOT NULL AUTO_INCREMENT,
+userId INT NOT NULL,
+firstname VARCHAR(50),
+lastname VARCHAR(50),
+age INT,
+image VARCHAR(250) DEFAULT 'anonymousProfile.png',
+adress VARCHAR(250) NOT NULL,
+timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (userId) REFERENCES websecusers (id),
+PRIMARY KEY (id)
+) ENGINE=innoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+INSERT INTO websecuserinfo
+
+(userId,firstname,lastname,age,adress)
+VALUES
+
+('1','Admin','Admin','99','God road');
+
+INSERT INTO websecuserinfo
+
+(userId,firstname,lastname,age,adress)
+VALUES
+
+('3','Shawn','Hansen','29','God road');
+
+----------------------------------------------------------------------------
+
+USE sys;
+DROP TABLE websecip;
+
+USE sys;
+DROP TABLE websecusers;
+
+USE sys;
+DROP TABLE websecreviews;
+
+
+----------------------------------------------------------------------------
+STORED PROCEDURE
+
+
+USE sys;
+GO
+
+CREATE PROCEDURE testStored
+AS
+SELECT * FROM websecuserinfo
+GO
+
+EXEC testStored
