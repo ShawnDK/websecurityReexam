@@ -1,0 +1,33 @@
+USE shawndesign_dk;
+CREATE TABLE IF NOT EXISTS websecusers
+(
+id INT NOT NULL AUTO_INCREMENT, 
+User VARCHAR(20) NOT NULL,
+Pass VARCHAR(255) NOT NULL,
+LoggedTime timestamp default now() on update now(),
+PRIMARY KEY (id)
+) ENGINE=innoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO websecusers(User,Pass,LoggedTime) VALUES ('superadmin', 'superadmin', 'null');
+
+INSERT INTO websecusers(User,Pass,LoggedTime) VALUES ('test', 'admin', 'null');
+
+
+----------------------------------------------------------------------------
+
+
+USE shawndesign_dk;
+CREATE TABLE IF NOT EXISTS websecip (
+address varchar(16) NOT NULL,
+lockout varchar(16),
+username varchar(30) NOT NULL,
+timestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=innoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+----------------------------------------------------------------------------
+
+USE shawndesign_dk;
+DROP TABLE websecip;
+
+USE shawndesign_dk;
+DROP TABLE websecusers;

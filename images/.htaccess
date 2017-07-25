@@ -1,0 +1,32 @@
+RewriteEngine on
+
+#force https
+#RewriteRule ^(.*)$ https://188.226.140.143/$1 [R,L]
+
+#rwrite url to call page no matter what
+#RewriteRule ^ urlRoute.php [L]
+#RewriteRule ^(.*)$ urlRoute.php [R=301,L]
+
+
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteRule ^(.*)$ urlRoute.php [QSA,L]
+
+
+
+#hides folder browsing
+Options -Indexes
+Options -MultiViews
+
+<Files faq.php>
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+</Files>
+
+<Files urlRoute.php>
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+ErrorDocument   403 /wops403.html

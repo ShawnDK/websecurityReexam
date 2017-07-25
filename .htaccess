@@ -1,0 +1,46 @@
+RewriteEngine on
+
+
+#force https
+#RewriteRule ^(.*)$ https://188.226.140.143/$1 [R,L]
+
+#RewriteRule ^ urlRoute.php [L]
+#RewriteRule ^(.*)$ urlRoute.php [R=301,L]
+
+
+#rwrite url to call re-route page when the file/directory called does not exist
+ RewriteCond %{REQUEST_FILENAME} !-d
+#done because the css that the page tried to load was redirecting to urlRoute.php instead of presenting the css file
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteRule ^(.*)$ urlRoute.php [QSA,L]
+ 
+ 
+
+DirectoryIndex urlRoute.php
+
+#hides folder browsing
+Options -Indexes
+Options -MultiViews
+
+#denies direct access to all php files
+<Files *.php>
+    Deny from all
+    Allow from 127.0.0.1
+</Files>
+
+#Have to figure out how to properly allow execution of folder php scripts instead of using their naming convention
+#http://regexr.com/ used to figure out the expression to use
+<FilesMatch "action_[A-Za-z]+?(-[a-zA-Z]+)?.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+#allows access to this php file
+<Files urlRoute.php>
+    Allow from all
+</Files>
+
+#ERROR PAGE HANDLING
+#example error page handling
+#ErrorDocument   403 /wops403.html
+#ErrorDocument   403 /dan.html
