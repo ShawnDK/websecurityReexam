@@ -68,6 +68,27 @@
     $rentier->bindParam(":userId", $item[0]['userId']);
     $rentier->execute();
     $rentier = $rentier->fetchAll();
+    
+    
+    $reviews = $con->prepare("SELECT * FROM websecreviews WHERE user LIKE :profileId");
+    $reviews->bindParam(':profileId', $item[0]['userId']);
+    $reviews->execute();
+    $reviewsCount = $reviews->rowCount();
+    $reviews = $reviews->fetchAll();
+    
+    //print_r($reviewsCount);
+    
+    $finalRating = 0;
+    $testFinalrating = 0;
+    foreach($reviews as $eachReview){
+        $finalRating += $eachReview['rating'];      
+    }
+    if ($finalRating != 0){
+        $testFinalrating = round($finalRating/$reviewsCount);
+    } else {
+        $testFinalrating = 0;
+    }
+                                                                        
              //   $rentals = $con->prepare("SELECT websecrentals.id, websecrentals.title, websecrentals.image, websecuserinfo.firstname, websecuserinfo.lastname, websecuserinfo.adress, websecrentals.des, websecrentals.price FROM websecrentals LEFT JOIN websecuserinfo ON websecuserinfo.userId = websecrentals.userId ORDER BY websecrentals.timestamp;");
 
     ?>
@@ -107,13 +128,22 @@
                     <a href="/websecurity/profile/<?php echo $item[0]['userId'] ?>"><h3 class="fl-l"><?php echo $rentier[0]['firstname']; ?> <?php echo $rentier[0]['lastname']; ?></h3></a>
                     <img class="img-s-20 fl-l" src="http://www.gabbatracklistworld.com/img/online.png">
                 </div>
-                <div class='f-c m-0'>
-                    <i class='fa fa-star fa-2 fa-star2' aria-hidden='true'></i>
-                    <i class='fa fa-star fa-star2 fa-2' aria-hidden='true'></i>
-                    <i class='fa fa-star fa-star2 fa-2' aria-hidden='true'></i>
-                    <i class='fa fa-star fa-star2 fa-2' aria-hidden='true'></i>
-                    <i class='fa fa-star-o fa-star-o2' aria-hidden='true'></i>
-                </div>
+                
+                <?php if($testFinalrating != 0){
+                    echo "
+								
+                    <div class='f-c m-0'>
+                            ".str_repeat("<i class='fa fa-star fa-2' aria-hidden='true'></i>", $testFinalrating).str_repeat("<i class='fa fa-star-o' aria-hidden='true'></i>", (5-$testFinalrating))."
+                    </div>
+                    
+                    ";
+                    }else{
+                            echo "<div class='f-c m-0'>
+                            ".str_repeat("<i class='fa fa-star fa-2' aria-hidden='true'></i>", 0).str_repeat("<i class='fa fa-star-o' aria-hidden='true'></i>", (5))."
+                    </div>";
+                    }
+                    ?>
+                                                                
                 <div class="fbConfirmed">
                     <i class='fa fa-check-square-o' aria-hidden='true'></i>Facebook godkendt
                 </div>

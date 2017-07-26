@@ -7,6 +7,12 @@ $result->bindParam(':profileId', $profileId);
 $result->execute();
 $resultCheckCount = $result->rowCount();
 $result = $result->fetchAll();
+
+$result2 = $con->prepare("SELECT * FROM websecusers WHERE id LIKE :profileId");
+$result2->bindParam(':profileId', $profileId);
+$result2->execute();
+$resultCheckCount2 = $result2->rowCount();
+$result2 = $result2->fetchAll();
 ?>
 
 <div class="container">
@@ -37,25 +43,25 @@ $result = $result->fetchAll();
                 <div class="form-group">
                     <label class="col-lg-3 control-label">First name:</label>
                     <div class="col-lg-8">
-                        <input id="inputLastName" class="form-control" type="text" value="name">
+                        <input id="inputLastName" class="form-control" type="text" value="<?php echo $result[0]['firstname']?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Last name:</label>
                     <div class="col-lg-8">
-                        <input id="inputFirstName" class="form-control" type="text" value="name">
+                        <input id="inputFirstName" class="form-control" type="text" value="<?php echo $result[0]['lastname']?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Adress:</label>
                     <div class="col-lg-8">
-                        <input id="inputAdress" class="form-control" type="text" value="">
+                        <input id="inputAdress" class="form-control" type="text" value="<?php echo $result[0]['adress']?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Age:</label>
                     <div class="col-lg-8">
-                        <input id="inputAge" class="form-control" type="number" value="18">
+                        <input id="inputAge" class="form-control" type="number" value="<?php echo $result[0]['age']?>">
                     </div>
                 </div>
                 <div class="form-group">
@@ -89,7 +95,7 @@ $result = $result->fetchAll();
                 <div class="form-group">
                     <label class="col-md-3 control-label">Username:</label>
                     <div class="col-md-8">
-                        <input id="inputUsername" placeholder="username" class="form-control" type="text" value="">
+                        <input id="inputUsername" placeholder="username" class="form-control" type="text" value="<?php echo $result2[0]['user']?>">
                     </div>
                 </div>
                 <div class="form-group">

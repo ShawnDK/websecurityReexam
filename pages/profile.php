@@ -38,18 +38,18 @@ if($resultCheckCount>0){
                 </div>
                 <div>
                     <p class="">
-                        <?php echo $result[0]['firstname']." ".$result[0]['lastname']?>
+                        <?php echo htmlentities($result[0]['firstname'])." ".$result[0]['lastname']?>
                     </p>
                     <p class="">
                         <?php if($result[0]['adress'] != ""){
-                            echo $result[0]['adress'];
+                            echo htmlentities($result[0]['adress']);
                         }else{
                             echo '...';
                         }?>
                     </p>
                     <p class="">
                         <?php if($result[0]['age'] != ""){
-                            echo $result[0]['age'];
+                            echo htmlentities($result[0]['age']);
                         }else{
                             echo '...';
                         }?>
@@ -114,7 +114,7 @@ if($resultCheckCount>0){
 
                         echo "' class='img-100' alt='Profile'>
                     </div>
-                    <p class='w-300 f-w-600 txt-align-center'>".$each['title']."</p></br>
+                    <p class='w-300 f-w-600 txt-align-center'>".htmlentities($each['title'])."</p></br>
                     <p class='w-300'>".htmlentities($each['des']).
                         "</p><br><p class='w-300 txt-align-center'>Price: ".$each['price'].
                         "</p></div></a>";
@@ -145,7 +145,7 @@ if($resultCheckCount>0){
                     </div>
                     <div class=\"f-sp\">
                         <p class=\"w-300 f-grow\">".htmlentities($each['comment'])."</p>
-                        <a href='profile/".$each['reviewer']."'><p class=\"w-300 f-08-ir\">User:". $each['reviewer']."</p></a>
+                        <a href='/websecurity/profile/".$each['reviewer']."'><p class=\"w-300 f-08-ir\">User:". $each['reviewer']."</p></a>
                         <p class=\"w-300 f-08-ir\">Date:". $each['reviewTime']."</p>
                     </div>
                 </div></div>";
