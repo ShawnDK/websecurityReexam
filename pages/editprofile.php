@@ -1,3 +1,14 @@
+<?php
+//GET THE DB CONNECTION DETAILS
+require_once 'db_connect.php';
+
+$result = $con->prepare("SELECT * FROM websecuserinfo WHERE userId LIKE :profileId");
+$result->bindParam(':profileId', $profileId);
+$result->execute();
+$resultCheckCount = $result->rowCount();
+$result = $result->fetchAll();
+?>
+
 <div class="container">
     <h1>Edit Profile</h1>
     <hr>
@@ -5,7 +16,7 @@
         <!-- left column -->
         <div class="col-md-3">
             <div class="text-center">
-                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                <img src="/websecurity/uploads/<?php echo $result[0]['image']?>" class="avatar img-circle" alt="avatar">
                 <h6>Upload a different photo...</h6>
                 <form id="imgUploadForm" action="/websecurity/actions/action_update-profileimage.php" enctype="multipart/form-data">
                     <input type="file" name="image" class="form-control">
@@ -142,24 +153,24 @@ $('#imgUploadForm').on('submit',(function(e) {
     console.log(this);
     var formData = new FormData(this);
     console.log(formData);
-    // $.ajax({
-    //     type:'POST',
-    //     url: $(this).attr('action'),
-    //     data:formData,
-    //     cache:false,
-    //     contentType: false,
-    //     processData: false,
-    //     success:function(data){
-    //         console.log("success ");
-    //         console.log(data);
-    //         window.location.assign("http://188.226.140.143/profile");
-    //     },
-    //     error: function(data){
-    //         console.log("error ");
-    //         console.log(data);
-    //         window.location.assign("http://188.226.140.143/profile");
-    //     }
-    // });
+         $.ajax({
+         type:'POST',
+         url: $(this).attr('action'),
+         data:formData,
+         cache:false,
+         contentType: false,
+         processData: false,
+         success:function(data){
+             console.log("success ");
+             console.log(data);
+             window.location.assign("/websecurity/profile/edit");
+         },
+         error: function(data){
+             console.log("error ");
+             console.log(data);
+             //window.location.assign("/websecurity/profile");
+         }
+     });
 }));
 
 $("#btnUpdateAccount").click(function(){

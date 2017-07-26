@@ -89,7 +89,7 @@ if($resultCheckCount>0){
                 <?php
                 if(isset($_SESSION["userIdSession"])){
                 if($_SESSION["userIdSession"] == $result[0]['id']){
-                echo "<a href='products/add'><h2 class='h2-c'>ADD ITEM <i class='fa fa-plus-circle' aria-hidden='true'></i></h2></a>";
+                echo "<a href='/websecurity/products/add'><h2 class='h2-c'>ADD ITEM <i class='fa fa-plus-circle' aria-hidden='true'></i></h2></a>";
                 }
                 }
                 ?>
@@ -103,13 +103,13 @@ if($resultCheckCount>0){
                 
                 if($rentalsCheckCount>0){
                     foreach($rentals as $each){
-                        echo "<a href='../products/".$each['id']."'><div class='b-2 m-20 p-20'><div class='img-s-150 m-auto'>
+                        echo "<a href='/websecurity/products/".$each['id']."'><div class='b-2 m-20 p-20'><div class='img-s-150 m-auto'>
                         <img src='";
 
                         if($each['image']){
-                            echo "../uploads/".$each['image'];
+                            echo "/websecurity/uploads/".$each['image'];
                         }else{
-                            echo 'images/genericItem.png';
+                            echo '/websecurity/images/genericItem.png';
                         }
 
                         echo "' class='img-100' alt='Profile'>

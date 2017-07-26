@@ -57,6 +57,10 @@ body {
 #logo{
     padding: 5px;
 }
+.avatar{
+	height: 100px;
+	width: 100px;
+}
 .navbar {
     justify-content: center;
     width: 
