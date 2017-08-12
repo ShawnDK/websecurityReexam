@@ -2,6 +2,13 @@
 session_start();
 require_once '../pages/db_connect.php';
 
+$getToken = $_GET['token'];
+if ($_SESSION["uniqueToken"] != $getToken){
+	echo 'Sorry, something went wront';
+}else{
+
+
+
 $itemId = $_GET['itemId'];
 $reviewer = $_SESSION["userIdSession"];
 $getComment = $_GET['comment'];
@@ -28,6 +35,6 @@ else
 	echo ($getComment." ".$getRating." ");
 }
 
-
+}
 $con = null;
 ?>

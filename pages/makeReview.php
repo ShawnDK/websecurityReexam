@@ -1,3 +1,10 @@
+<?php
+//session_start();
+$token = uniqid();
+$_SESSION["uniqueToken"] = $token;
+//print_r($_SESSION["uniqueToken"]);
+?>
+
 
 <div class="f-cl-c m-20">
     <h1 class="h1-c">NEW REVIEW</h1>
@@ -48,7 +55,8 @@ $("#postR").click(function(){
     var comment = $("#commentField").val();
     var rating = $('.fa-star').length;
     var itemId = <?php echo $aUrl()[2]; ?>;
-    var sLink = "/websecurity/actions/action_make-review.php?comment=" + comment + "&rating=" + rating + "&itemId=" + itemId;
+    var token = '<?php echo $token; ?>';
+    var sLink = "/websecurity/actions/action_make-review.php?comment=" + comment + "&rating=" + rating + "&itemId=" + itemId + "&token=" + token;
 
     $.ajax({
         "url":sLink,
