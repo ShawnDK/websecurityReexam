@@ -3,7 +3,7 @@ session_start();
 require_once '../pages/db_connect.php';
 
 $getToken = $_GET['token'];
-if ($_SESSION["uniqueToken"] != $getToken){
+if (empty($_SESSION["uniqueToken"]) || $_SESSION["uniqueToken"] != $getToken){
 	echo 'Sorry, something went wront';
 }else{
 
@@ -37,4 +37,6 @@ else
 
 }
 $con = null;
+unset($_SESSION["uniqueToken"]);
+
 ?>
