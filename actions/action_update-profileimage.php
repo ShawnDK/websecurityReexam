@@ -23,8 +23,10 @@
 echo $_FILES['image']['error']." ";
 var_dump($_FILES['image']);
 
-if($_FILES['image']['type'] != "image/png") {
-    echo "Only PNG images are allowed!";
+if($_FILES['image']['type'] != "image/png" && $_FILES['image']['type'] != "image/jpeg") {
+    echo "Only PNG or JPEG images are allowed!";
+    $_SESSION['errorImg'] = "Only PNG or JPEG images are allowed!";
+    //echo $_FILES['image']['type'];
     exit;
 }
 

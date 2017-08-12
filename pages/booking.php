@@ -123,7 +123,7 @@
                 <div><?php echo htmlentities($item[0]['des']); ?></div>
             </div>
             <div class="personSpec fl-l f-cl-c">
-                <img class="img-s-75" src="https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png">
+                <img class="img-s-75" src="<?php echo '/websecurity/uploads/'.$rentier[0]['image'] ?>">
                 <div class="personName">
                     <a href="/websecurity/profile/<?php echo $item[0]['userId'] ?>"><h3 class="fl-l"><?php echo $rentier[0]['firstname']; ?> <?php echo $rentier[0]['lastname']; ?></h3></a>
                     <img class="img-s-20 fl-l" src="http://www.gabbatracklistworld.com/img/online.png">

@@ -141,7 +141,7 @@ if($resultCheckCount>0){
                 echo "<div class='b-2 m-30'><div class='f-c m-20'>".str_repeat("<i class='fa fa-star fa-2' aria-hidden='true'></i>", $each['rating']).str_repeat("<i class='fa fa-star-o' aria-hidden='true'></i>", (5-$each['rating']))."</div>
                 <div class=\"h-100 f-c m-20\">
                     <div class=\"img-s-150 m-l-r-50\">
-                        <img src=\"../images/genericItem.png\" class=\"img-100\" alt=\"item\">
+                        <img src=\"/websecurity/images/genericItem.png\" class=\"img-100\" alt=\"item\">
                     </div>
                     <div class=\"f-sp\">
                         <p class=\"w-300 f-grow\">".htmlentities($each['comment'])."</p>

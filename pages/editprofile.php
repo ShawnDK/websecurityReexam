@@ -33,10 +33,15 @@ $result2 = $result2->fetchAll();
 
         <!-- edit form column -->
         <div class="col-md-9 personal-info">
-            <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
-                <i class="fa fa-coffee"></i> This is an <strong>.alert</strong>. Use this to show important messages to the user.
-            </div>
+            
+                <?php
+                if(isset($_SESSION['errorImg'])){
+                    echo '<div class="alert alert-danger alert-dismissable">
+                    <a class="panel-close close" data-dismiss="alert">×</a>
+                    <i class="fa fa-file-o"></i>'. $_SESSION["errorImg"] .'</div>';
+                };
+                unset($_SESSION['errorImg']);?>
+            
             <h3>Personal info</h3>
 
             <form class="form-horizontal" role="form">
