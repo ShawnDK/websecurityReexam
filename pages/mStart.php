@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="full" lang="en">
 	<head>
-		<title>Page Titles</title>
+		<title>Web Security</title>
 		<meta charset="UTF-8">
 		<meta name="viewport"  content="width=device-width, initial-scale=1.0">
 		<!--

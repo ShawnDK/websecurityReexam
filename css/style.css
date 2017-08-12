@@ -150,6 +150,10 @@ li a:hover{
     display:none;
 }
 
+.container {
+	padding-bottom: 30px;
+}
+
 .popupContainer {
   width: 330px;
   height: auto;

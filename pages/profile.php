@@ -61,7 +61,7 @@ if($resultCheckCount>0){
                             foreach($reviews as $eachReview){
                                 $finalRating += $eachReview['rating'];      
                             }
-                            echo $finalRating/$reviewsCount;
+                            echo round($finalRating/$reviewsCount, 2);
                         }else{
                             echo 'no reviews yet';
                         }

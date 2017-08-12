@@ -11,8 +11,8 @@
   <div id="links">
     <ul>
       <li><a href='http://localhost/websecurity/'>Home</a></li>
-      <li><a href='messages'>Messages</a></li>
-      <li><a href='faq'>FAQ</a></li>
+      <li><a href='/websecurity/messages'>Messages</a></li>
+      <li><a href='/websecurity/faq'>FAQ</a></li>
       <?php
       if(!isset($_SESSION['userSession']))
       {

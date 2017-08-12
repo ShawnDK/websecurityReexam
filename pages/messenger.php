@@ -1,6 +1,6 @@
 
 
-   <div class="wrapper">
+   <div class="wrapper container">
     <div class="box">
         <div class="left">
             <div class="top">
