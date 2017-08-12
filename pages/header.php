@@ -19,7 +19,7 @@
        echo "<li id='login'><a id='modal_trigger' href='#modal'><span><i class='fa fa-sign-in' aria-hidden='true'></i></span>Login</a></li>";
      }else{
        echo "<li id='logoutBtn'><a><span><i class='fa fa-sign-in' aria-hidden='true'></i></span>Log out</a></li>
-       <li><a href='/websecurity/profile' class='blackText'>Welcome, ".$_SESSION['userSession']."</a></li><li><a href='profile/edit'><span><i class='fa fa-pencil' aria-hidden='true'></i></span></a></li>";
+       <li><a href='/websecurity/profile' class='blackText'>Welcome, ".$_SESSION['userSession']."</a></li><li><a href='/websecurity/profile/edit'><span><i class='fa fa-pencil' aria-hidden='true'></i></span></a></li>";
      }
      ?>
 
