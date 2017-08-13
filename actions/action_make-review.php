@@ -19,7 +19,25 @@ $user->execute();
 $user = $user->fetchAll();
 $user = $user[0]['userId'];
 
-if($getComment != "" && $getRating != "" && $getRating <= "5" && $getRating >= "1"){
+//TEST
+$user2 = $con->prepare("SELECT * FROM websecreviews WHERE reviewer LIKE :userId AND itemId LIKE :itemId AND reviewTime > (now() - interval 2 minute)");
+$user2->bindParam(':userId',$reviewer);
+$user2->bindParam(':itemId',$itemId);
+$user2->execute();
+//$user2 = $user2->fetchAll();
+$count = $user2->rowCount();
+
+//echo $count;
+if($count != 0)
+{
+	echo 'no';
+}
+
+
+
+//TEST END
+
+if($count == 0 && $getComment != "" && $getRating != "" && $getRating <= "5" && $getRating >= "1"){
 	$result = $con->prepare("INSERT INTO websecreviews (itemId,user,reviewer,comment,rating) VALUES (:itemId,:user,:reviewer,:comment,:rating)");
 	$result->bindParam(':user',$user);
 	$result->bindParam(':reviewer',$reviewer);
@@ -32,7 +50,7 @@ if($getComment != "" && $getRating != "" && $getRating <= "5" && $getRating >= "
 }
 else
 {
-	echo ($getComment." ".$getRating." ");
+	//echo ($getComment." ".$getRating." ");
 }
 
 }

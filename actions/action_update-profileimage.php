@@ -36,7 +36,7 @@ $uploaddir = '../uploads/';
 $uploadfile = $uploaddir . basename($_FILES['image']['name']);
 
 if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
-	$updPhoto = $con->prepare("UPDATE websecuserinfo SET image = :imageName WHERE id = :userId");
+	$updPhoto = $con->prepare("UPDATE websecuserinfo SET image = :imageName WHERE userId = :userId");
 	$updPhoto->bindParam(":imageName",basename($_FILES['image']['name']));
 	$updPhoto->bindParam(":userId", $sUserId);
 	$updPhoto->execute();

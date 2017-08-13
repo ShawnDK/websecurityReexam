@@ -48,13 +48,13 @@ $result2 = $result2->fetchAll();
                 <div class="form-group">
                     <label class="col-lg-3 control-label">First name:</label>
                     <div class="col-lg-8">
-                        <input id="inputLastName" class="form-control" type="text" value="<?php echo $result[0]['firstname']?>">
+                        <input id="inputFirstName" class="form-control" type="text" value="<?php echo $result[0]['firstname']?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Last name:</label>
                     <div class="col-lg-8">
-                        <input id="inputFirstName" class="form-control" type="text" value="<?php echo $result[0]['lastname']?>">
+                        <input id="inputLastName" class="form-control" type="text" value="<?php echo $result[0]['lastname']?>">
                     </div>
                 </div>
                 <div class="form-group">

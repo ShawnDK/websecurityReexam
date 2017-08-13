@@ -60,6 +60,16 @@
         $createSql ->bindParam(':sEmail', $sEmail);
         $createSql ->bindParam(':Pass', $passwordHash);
         $createSql ->execute();
+        
+        
+        $sAdressVariable = 'No adress';
+        
+        $createSql2 = $con ->prepare ("INSERT INTO websecuserinfo (userId,adress) VALUES ((SELECT id FROM websecusers WHERE user=:uName),:sAdress)");
+        $createSql2 ->bindParam(':uName', $sUser);
+        $createSql2 ->bindParam(':sAdress', $sAdressVariable);
+        $createSql2 ->execute();
+        
+        
         $msg['creationOk'] = 'Profile has successfully been created';
     }
     

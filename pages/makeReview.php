@@ -68,7 +68,18 @@ $("#postR").click(function(){
 
         if (Data == "yes") {
             swal("Good job!", "You made a review!", "success")
-        }else{
+            window.setTimeout(function(){
+            window.location.assign("http://localhost/websecurity");
+            }, 3000);
+            
+        }else if (Data == "no") {
+            swal("Error", "You already made a review!", "error")
+            window.setTimeout(function(){
+            window.location.assign("http://localhost/websecurity");
+            }, 3000);
+            
+        }
+        else{
             swal({
             title: "Error!",
             text: "Please enter something",

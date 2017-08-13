@@ -115,7 +115,7 @@
         <div class="item clearfix bg-dbdbdb p-10">
             <div class="itemSpec w-300 fl-l m-r-20">
                 <img class="img-max-300" src="<?php echo '/websecurity/uploads/'.$item[0]['image']; ?>">
-                <div>
+                <div style="height: 40px;">
                     <h2 class="fl-l fs-24px"><?php echo $item[0]['title']; ?></h2>
                     <h2 class="fl-r fs-24px fw-normal"><span class=""><?php echo $item[0]['price']; ?>$</span>/day</h2>
                 </div>

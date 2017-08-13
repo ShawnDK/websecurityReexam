@@ -64,7 +64,7 @@
             <div class="wrap">
                 <div class="part half">
                     <div class="top">
-                        <img src="images/logo.jpg">ốt
+                        <img src="/websecurity/images/logo.jpg">ốt
                     </div>
                     <div class="bot">
                         © Copyright from Rốt
@@ -92,15 +92,15 @@
                 </div>
                 <div class="part socialMedia">
                     <div class="item">
-                        <img src="images/facebook-logo-button.png">
+                        <img src="/websecurity/images/facebook-logo-button.png">
                         Facebook
                     </div>
                     <div class="item">
-                        <img src="images/twitter-logo-button.png">
+                        <img src="/websecurity/images/twitter-logo-button.png">
                         Twitter
                     </div>
                     <div class="item">
-                        <img src="images/instagram-logo.png">
+                        <img src="/websecurity/images/instagram-logo.png">
                         Instagram
                     </div>
                 </div>

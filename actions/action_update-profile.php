@@ -18,7 +18,7 @@
         $sFirstName = $_GET['firstname'];
         $iAge = (int)$_GET['age'];
 
-        $updateUser = $con->prepare("UPDATE websecuserinfo SET firstname = :firstName, lastname = :lastName, age=:age, adress=:adress WHERE id=:userId");
+        $updateUser = $con->prepare("UPDATE websecuserinfo SET firstname = :firstName, lastname = :lastName, age=:age, adress=:adress WHERE userId=:userId");
         $updateUser->bindParam(':userId', $sUserId);
 
         $updateUser->bindParam(':adress', $sAdress);

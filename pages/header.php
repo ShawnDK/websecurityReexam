@@ -235,7 +235,7 @@ if ( sCreateUser !== "" && sCreateEmail !== "" && sCreatePass !== "" && sCreateP
     },
     function(){
 
-      window.location.assign("http://188.226.140.143");
+      window.location.assign("http://localhost/websecurity");
     });
    });
   }
