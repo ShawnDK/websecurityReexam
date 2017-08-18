@@ -71,7 +71,7 @@ if($resultCheckCount>0){
             </div>
             <div class="img-s-150 m-l-r-50">
                 <img src="<?php
-
+            
                 if($result[0]['image'] != ""){
                     echo "/websecurity/uploads/".$result[0]['image'];
                 }else{
@@ -88,7 +88,7 @@ if($resultCheckCount>0){
             <div class="f-cl-c m-20">
                 <?php
                 if(isset($_SESSION["userIdSession"])){
-                if($_SESSION["userIdSession"] == $result[0]['id']){
+                if($_SESSION["userIdSession"] == $result[0]['userId']){
                 echo "<a href='/websecurity/products/add'><h2 class='h2-c'>ADD ITEM <i class='fa fa-plus-circle' aria-hidden='true'></i></h2></a>";
                 }
                 }
@@ -102,7 +102,8 @@ if($resultCheckCount>0){
                 <?php
                 
                 if($rentalsCheckCount>0){
-                    foreach($rentals as $each){
+
+                    foreach($rentals as $each){                       
                         echo "<a href='/websecurity/products/".$each['id']."'><div class='b-2 m-20 p-20'><div class='img-s-150 m-auto'>
                         <img src='";
 
@@ -141,6 +142,14 @@ if($resultCheckCount>0){
                 echo "<div class='b-2 m-30'><div class='f-c m-20'>".str_repeat("<i class='fa fa-star fa-2' aria-hidden='true'></i>", $each['rating']).str_repeat("<i class='fa fa-star-o' aria-hidden='true'></i>", (5-$each['rating']))."</div>
                 <div class=\"h-100 f-c m-20\">
                     <div class=\"img-s-150 m-l-r-50\">
+                    
+                    ";foreach($rentals as $eachR){   
+                        if ($eachR['id'] == $each['itemId'])
+                        {
+                         echo "<img src=/websecurity/uploads/".$eachR['image']." class=\"img-100\"";
+                        }
+                    } echo "
+                    
                         <img src=\"/websecurity/images/genericItem.png\" class=\"img-100\" alt=\"item\">
                     </div>
                     <div class=\"f-sp\">
